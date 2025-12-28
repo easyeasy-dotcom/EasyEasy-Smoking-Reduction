@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyEasy - Cigarette Filters</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+            font-size: 14px;
+            border-left: 1px solid #e0e0e0;
+            padding-left: 30px;
+        }
+
+        .lang-switcher span {
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .lang-switcher span.active {
+            opacity: 1;
+            font-weight: 600;
+        }
+
+        .lang-switcher span:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #333;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            text-align: center;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 400px;
+            background: #f5f5f5;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .product-card .price {
+            font-size: 20px;
+            margin: 15px 0;
+            font-weight: 300;
+        }
+
+        .product-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            line-height: 2;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: #f5f5f5;
+            padding: 40px 50px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Page Toggle */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .lang-switcher {
+                border-left: none;
+                border-top: 1px solid #e0e0e0;
+                padding-left: 0;
+                padding-top: 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">EASYEASY</div>
+        <div class="nav-links">
+            <a onclick="showPage('home')" data-en="HOME" data-tc="首頁" data-sc="首页">HOME</a>
+            <a onclick="showPage('shop')" data-en="SHOP" data-tc="商店" data-sc="商店">SHOP</a>
+            <a onclick="showPage('about')" data-en="ABOUT US" data-tc="關於我們" data-sc="关于我们">ABOUT US</a>
+            <div class="lang-switcher">
+                <span class="active" onclick="switchLanguage('en')">EN</span>
+                <span>|</span>
+                <span onclick="switchLanguage('tc')">繁</span>
+                <span>|</span>
+                <span onclick="switchLanguage('sc')">简</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1 data-en="Take Control of Your Journey" data-tc="掌控您的旅程" data-sc="掌控您的旅程">Take Control of Your Journey</h1>
+                <p data-en="AI-Powered Smoking Reduction Filters" data-tc="AI 智能吸煙減量過濾器" data-sc="AI 智能吸烟减量过滤器">AI-Powered Smoking Reduction Filters</p>
+                <p data-en="Advanced AI chipset technology for a healthier lifestyle" data-tc="先進的 AI 芯片技術，邁向更健康的生活方式" data-sc="先进的 AI 芯片技术，迈向更健康的生活方式" style="font-size: 16px; margin-top: 10px;">Advanced AI chipset technology for a healthier lifestyle</p>
+                <a href="#" class="btn" onclick="showPage('shop')" data-en="SHOP NOW" data-tc="立即購買" data-sc="立即购买">SHOP NOW</a>
+            </div>
+        </div>
+
+        <!-- Featured Products -->
+        <section>
+            <h2 data-en="Our Products" data-tc="我們的產品" data-sc="我们的产品">Our Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1614108804256-7a3f6c2e2b8b?w=800&q=80" alt="40 Days Set">
+                    </div>
+                    <h3 data-en="40 Days Smoking Reduction Set" data-tc="40天吸煙減量套裝" data-sc="40天吸烟减量套装">40 Days Smoking Reduction Set</h3>
+                    <p class="price" data-en="$38 USD" data-tc="$300 HKD" data-sc="¥300 HKD">$38 USD</p>
+                    <p data-en="AI-powered filter with smart chipset technology for gradual smoking reduction" data-tc="配備智能芯片技術的 AI 過濾器，逐步減少吸煙" data-sc="配备智能芯片技术的 AI 过滤器，逐步减少吸烟">AI-powered filter with smart chipset technology for gradual smoking reduction</p>
+                    <a href="#" class="btn" onclick="showPage('shop')" data-en="LEARN MORE" data-tc="了解更多" data-sc="了解更多">LEARN MORE</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=800&q=80" alt="90 Days Set">
+                    </div>
+                    <h3 data-en="90 Days Smoking Reduction Set" data-tc="90天吸煙減量套裝" data-sc="90天吸烟减量套装">90 Days Smoking Reduction Set</h3>
+                    <p class="price" data-en="$77 USD" data-tc="$600 HKD" data-sc="¥600 HKD">$77 USD</p>
+                    <p data-en="Complete AI-powered solution with advanced chipset for long-term smoking reduction" data-tc="配備先進芯片的完整 AI 解決方案，實現長期吸煙減量" data-sc="配备先进芯片的完整 AI 解决方案，实现长期吸烟减量">Complete AI-powered solution with advanced chipset for long-term smoking reduction</p>
+                    <a href="#" class="btn" onclick="showPage('shop')" data-en="LEARN MORE" data-tc="了解更多" data-sc="了解更多">LEARN MORE</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SHOP PAGE -->
+    <div id="shop" class="page">
+        <section>
+            <h2 data-en="Shop Our Filters" data-tc="選購我們的過濾器" data-sc="选购我们的过滤器">Shop Our Filters</h2>
+            
+            <div class="product-grid">
+                <!-- Product 1: 40 Days Set -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1614108804256-7a3f6c2e2b8b?w=800&q=80" alt="40 Days Set">
+                    </div>
+                    <h3 data-en="40 Days Smoking Reduction Set" data-tc="40天吸煙減量套裝" data-sc="40天吸烟减量套装">40 Days Smoking Reduction Set</h3>
+                    <p class="price" data-en="$38 USD" data-tc="$300 HKD" data-sc="¥300 HKD">$38 USD</p>
+                    <p data-en="Our 40 Days Smoking Reduction Set features AI-powered smart chipset technology designed to help gradually reduce harmful substances while maintaining your smoking experience. The intelligent filter adapts to your usage, providing data-driven reduction support. Perfect for those starting their journey towards healthier habits." 
+                       data-tc="我們的40天吸煙減量套裝配備 AI 智能芯片技術，旨在逐步減少有害物質，同時保持您的吸煙體驗。智能過濾器會適應您的使用情況，提供數據驅動的減量支持。非常適合那些開始邁向更健康習慣的人。" 
+                       data-sc="我们的40天吸烟减量套装配备 AI 智能芯片技术，旨在逐步减少有害物质，同时保持您的吸烟体验。智能过滤器会适应您的使用情况，提供数据驱动的减量支持。非常适合那些开始迈向更健康习惯的人。">
+                        Our 40 Days Smoking Reduction Set features AI-powered smart chipset technology designed to help gradually reduce harmful substances while maintaining your smoking experience. The intelligent filter adapts to your usage, providing data-driven reduction support. Perfect for those starting their journey towards healthier habits.
+                    </p>
+                    
+                    <!-- PLACEHOLDER: Replace with your PayPal button -->
+                    <div style="margin-top: 20px; padding: 15px; background: #f5f5f5; border: 2px dashed #ccc;">
+                        <p style="font-size: 12px; color: #999; margin-bottom: 10px;" data-en="PayPal Button Placeholder - Replace with your button code" data-tc="PayPal 按鈕佔位符 - 請替換為您的按鈕代碼" data-sc="PayPal 按钮占位符 - 请替换为您的按钮代码">PayPal Button Placeholder - Replace with your button code</p>
+                        <button class="btn" data-en="BUY NOW" data-tc="立即購買" data-sc="立即购买">BUY NOW</button>
+                    </div>
+                </div>
+
+                <!-- Product 2: 90 Days Set -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=800&q=80" alt="90 Days Set">
+                    </div>
+                    <h3 data-en="90 Days Smoking Reduction Set" data-tc="90天吸煙減量套裝" data-sc="90天吸烟减量套装">90 Days Smoking Reduction Set</h3>
+                    <p class="price" data-en="$77 USD" data-tc="$600 HKD" data-sc="¥600 HKD">$77 USD</p>
+                    <p data-en="Our most popular option! The 90 Days Smoking Reduction Set provides a complete 3-month supply of AI-powered filters with advanced smart chipset technology. The intelligent system tracks your progress and optimizes filtration levels for maximum effectiveness. Save more and commit to a data-driven, long-term solution for reducing harmful substances." 
+                       data-tc="我們最受歡迎的選擇！90天吸煙減量套裝提供完整3個月的 AI 智能過濾器供應，配備先進的智能芯片技術。智能系統會追蹤您的進度並優化過濾級別以獲得最大效果。節省更多並致力於數據驅動的長期減少有害物質解決方案。" 
+                       data-sc="我们最受欢迎的选择！90天吸烟减量套装提供完整3个月的 AI 智能过滤器供应，配备先进的智能芯片技术。智能系统会追踪您的进度并优化过滤级别以获得最大效果。节省更多并致力于数据驱动的长期减少有害物质解决方案。">
+                        Our most popular option! The 90 Days Smoking Reduction Set provides a complete 3-month supply of AI-powered filters with advanced smart chipset technology. The intelligent system tracks your progress and optimizes filtration levels for maximum effectiveness. Save more and commit to a data-driven, long-term solution for reducing harmful substances.
+                    </p>
+                    
+                    <!-- PLACEHOLDER: Replace with your PayPal button -->
+                    <div style="margin-top: 20px; padding: 15px; background: #f5f5f5; border: 2px dashed #ccc;">
+                        <p style="font-size: 12px; color: #999; margin-bottom: 10px;" data-en="PayPal Button Placeholder - Replace with your button code" data-tc="PayPal 按鈕佔位符 - 請替換為您的按鈕代碼" data-sc="PayPal 按钮占位符 - 请替换为您的按钮代码">PayPal Button Placeholder - Replace with your button code</p>
+                        <button class="btn" data-en="BUY NOW" data-tc="立即購買" data-sc="立即购买">BUY NOW</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <section>
+            <h2 data-en="About EasyEasy" data-tc="關於 EasyEasy" data-sc="关于 EasyEasy">About EasyEasy</h2>
+            <div class="about-content">
+                <p data-en="At EasyEasy, we believe that every journey towards a healthier lifestyle should be supported with the right tools. Our premium cigarette filters are designed to help reduce harmful substances while you work on your goals." 
+                   data-tc="在 EasyEasy，我們相信每個邁向更健康生活方式的旅程都應該得到正確工具的支持。我們的優質香煙過濾器旨在幫助您在實現目標的同時減少有害物質。" 
+                   data-sc="在 EasyEasy，我们相信每个迈向更健康生活方式的旅程都应该得到正确工具的支持。我们的优质香烟过滤器旨在帮助您在实现目标的同时减少有害物质。">
+                    At EasyEasy, we believe that every journey towards a healthier lifestyle should be supported with the right tools. Our premium cigarette filters are designed to help reduce harmful substances while you work on your goals.
+                </p>
+                
+                <p data-en="Founded with a commitment to quality and effectiveness, EasyEasy provides scientifically-designed filters that make a real difference. We understand that change takes time, and we're here to support you every step of the way." 
+                   data-tc="EasyEasy 秉持對品質和效能的承諾而成立，提供科學設計的過濾器，真正發揮作用。我們了解改變需要時間，我們會在每一步支持您。" 
+                   data-sc="EasyEasy 秉持对品质和效能的承诺而成立，提供科学设计的过滤器，真正发挥作用。我们了解改变需要时间，我们会在每一步支持您。">
+                    Founded with a commitment to quality and effectiveness, EasyEasy provides scientifically-designed filters that make a real difference. We understand that change takes time, and we're here to support you every step of the way.
+                </p>
+                
+                <p data-en="Our mission is simple: to make your journey towards better health easier, one day at a time." 
+                   data-tc="我們的使命很簡單：讓您邁向更健康的旅程每天都變得更容易。" 
+                   data-sc="我们的使命很简单：让您迈向更健康的旅程每天都变得更容易。">
+                    Our mission is simple: to make your journey towards better health easier, one day at a time.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p data-en="© 2024 EasyEasy. All rights reserved." data-tc="© 2024 EasyEasy。保留所有權利。" data-sc="© 2024 EasyEasy。保留所有权利。">© 2024 EasyEasy. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Current language
+        let currentLang = 'en';
+
+        // Show/hide pages
+        function showPage(pageName) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageName).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Language switcher
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update active language indicator
+            document.querySelectorAll('.lang-switcher span').forEach(span => {
+                span.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update all text elements
+            const elements = document.querySelectorAll('[data-en]');
+            elements.forEach(el => {
+                if (lang === 'en') {
+                    el.textContent = el.getAttribute('data-en');
+                } else if (lang === 'tc') {
+                    el.textContent = el.getAttribute('data-tc');
+                } else if (lang === 'sc') {
+                    el.textContent = el.getAttribute('data-sc');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
