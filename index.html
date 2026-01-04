@@ -288,7 +288,7 @@
         }
 
         .about-content {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -300,13 +300,93 @@
         }
 
         .about-section {
-            margin-bottom: 60px;
+            margin-bottom: 0;
+            padding: 60px 40px;
+        }
+
+        .about-section:nth-child(even) {
+            background: #f9fafb;
         }
 
         .about-section h3 {
-            font-size: 28px;
+            font-size: 32px;
             margin-bottom: 25px;
             color: #2563eb;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-icon {
+            font-size: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        .featured-quote {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: #fff;
+            padding: 50px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-quote::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 150px;
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .featured-quote p {
+            font-size: 28px;
+            line-height: 1.6;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            margin: 0;
+        }
+
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #2563eb, transparent);
+            margin: 60px auto;
+            max-width: 200px;
         }
 
         .custom-text-area {
@@ -777,9 +857,31 @@
     </div>
 
     <div id="about" class="page">
-        <section>
+        <section style="padding: 80px 20px;">
             <h2 data-en="About EasyEasy" data-tc="關於 EasyEasy" data-sc="关于 EasyEasy">About EasyEasy</h2>
+            
             <div class="about-content">
+                <!-- Statistics Section -->
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">40</div>
+                        <div class="stat-label" data-en="Days to Freedom" data-tc="天達成自由" data-sc="天达成自由">Days to Freedom</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">99.99%</div>
+                        <div class="stat-label" data-en="AI Breakthrough" data-tc="AI 突破" data-sc="AI 突破">AI Breakthrough</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50%+</div>
+                        <div class="stat-label" data-en="Instant Harm Reduction" data-tc="即時減害" data-sc="即时减害">Instant Harm Reduction</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label" data-en="Innovative Solutions" data-tc="創新解決方案" data-sc="创新解决方案">Innovative Solutions</div>
+                    </div>
+                </div>
+
+                <!-- Main About Section -->
                 <div class="about-section">
                     <p data-en="At EasyEasy, we believe that every journey towards a healthier lifestyle should be supported with the right tools. Our premium cigarette filters are designed to help reduce harmful substances while you work on your goals." 
                        data-tc="在 EasyEasy，我們相信每個邁向更健康生活方式的旅程都應該得到正確工具的支持。我們的優質香煙過濾器旨在幫助您在實現目標的同時減少有害物質。" 
@@ -788,8 +890,11 @@
                     </p>
                 </div>
 
+                <div class="section-divider"></div>
+
+                <!-- Revolutionary Technology Section -->
                 <div class="about-section">
-                    <h3 data-en="Revolutionary Technology from Canada" data-tc="來自加拿大的革命性技術" data-sc="来自加拿大的革命性技术">Revolutionary Technology from Canada</h3>
+                    <h3><span class="section-icon">🇨🇦</span><span data-en="Revolutionary Technology from Canada" data-tc="來自加拿大的革命性技術" data-sc="来自加拿大的革命性技术">Revolutionary Technology from Canada</span></h3>
                     <p data-en="Developed by Canada's Glow X Inc, Easy Easy smoking reduction/cessation filter tips will lead a global wave of easy quitting! Action brings ownership, gratitude brings longevity. Wait for results? Better chase real results. Win 99.99% AI + scientific breakthrough experience." 
                        data-tc="由加拿大 Glow X Inc 嶄新研發 easy easy 減/戒煙濾咀 將帶領全球爆發輕鬆戒煙潮 ! 行動才能擁有 感恩才能長久 等結果 ? 不如追正果 贏盡99.99% AI+科學突破體驗" 
                        data-sc="由加拿大 Glow X Inc 崭新研发 easy easy 减/戒烟滤嘴 将带领全球爆发轻松戒烟潮 ! 行动才能拥有 感恩才能长久 等结果 ? 不如追正果 赢尽99.99% AI+科学突破体验">
@@ -797,8 +902,11 @@
                     </p>
                 </div>
 
+                <div class="section-divider"></div>
+
+                <!-- Our Products Section -->
                 <div class="about-section">
-                    <h3 data-en="Our Products" data-tc="我們的產品" data-sc="我们的产品">Our Products</h3>
+                    <h3><span class="section-icon">🔬</span><span data-en="Our Products" data-tc="我們的產品" data-sc="我们的产品">Our Products</span></h3>
                     <p data-en="We offer two distinct solutions: the 70 Series Precision Reduction for gradual smoking reduction using our in-house design technology, and the Chipset40 Smoking Cessation Set featuring advanced AI chipset technology powered by high-dimensional physics and brain logic behavior design. Within 40 days, make a clean break with nicotine addiction using our revolutionary approach." 
                        data-tc="我們提供兩種不同的解決方案：使用我們獨家設計技術的精準減煙70系列用於逐步減少吸煙，以及配備先進 AI 芯片技術的 Chipset40 戒煙套裝，採用高維度物理和大腦邏輯行為設計。在 40 天內，使用我們的革命性方法與煙癮做個了斷。" 
                        data-sc="我们提供两种不同的解决方案：使用我们独家设计技术的精准减烟70系列用于逐步减少吸烟，以及配备先进 AI 芯片技术的 Chipset40 戒烟套装，采用高维度物理和大脑逻辑行为设计。在 40 天内，使用我们的革命性方法与烟瘾做个了断。">
@@ -806,8 +914,8 @@
                     </p>
                 </div>
 
-                <div class="callout-box" style="margin-top: 50px;">
-                    <h3 data-en="It's Never Too Late" data-tc="永遠不會太遲" data-sc="永远不会太迟">It's Never Too Late</h3>
+                <!-- Featured Quote -->
+                <div class="featured-quote">
                     <p data-en="Even at 80 years old, using Easy Easy smoking reduction/cessation can press the quality extension key for health and life." 
                        data-tc="哪怕80歲 使用 easy easy 減/戒煙也能為健康,生命按下優質延長鍵" 
                        data-sc="哪怕80岁 使用 easy easy 减/戒烟也能为健康,生命按下优质延长键">
@@ -815,13 +923,16 @@
                     </p>
                 </div>
 
-                <!-- CUSTOM CONTENT AREA - You can add more content here -->
+                <!-- CUSTOM CONTENT AREA -->
                 <div class="custom-text-area" style="margin-top: 50px;">
                     <p data-en="⚠️ PLACEHOLDER: Add your custom about content here. This section is clearly marked so you can add text without affecting the layout." data-tc="⚠️ 佔位符：在此添加您的自定義關於內容。此部分已明確標記，因此您可以添加文本而不會影響佈局。" data-sc="⚠️ 占位符：在此添加您的自定义关于内容。此部分已明确标记，因此您可以添加文本而不会影响布局。">⚠️ PLACEHOLDER: Add your custom about content here. This section is clearly marked so you can add text without affecting the layout.</p>
                 </div>
 
-                <div class="about-section" style="margin-top: 50px;">
-                    <h3 data-en="Partnership Opportunities" data-tc="合作機會" data-sc="合作机会">Partnership Opportunities</h3>
+                <div class="section-divider"></div>
+
+                <!-- Partnership Section -->
+                <div class="about-section">
+                    <h3><span class="section-icon">🤝</span><span data-en="Partnership Opportunities" data-tc="合作機會" data-sc="合作机会">Partnership Opportunities</span></h3>
                     <p data-en="Strong capabilities. Welcome global commercial, e-commerce, and sales platform sellers from all countries to inquire. Excellent conditions. Cooperation discussion." 
                        data-tc="實力雄厚 歡迎全球 工商 電商 各國銷售平台賣家查詢 條件優厚 合作洽談" 
                        data-sc="实力雄厚 欢迎全球 工商 电商 各国销售平台卖家查询 条件优厚 合作洽谈">
@@ -829,8 +940,11 @@
                     </p>
                 </div>
 
-                <div class="about-section">
-                    <p data-en="Our mission is simple: to make your journey towards better health easier, one day at a time." 
+                <div class="section-divider"></div>
+
+                <!-- Mission Statement -->
+                <div class="about-section" style="text-align: center;">
+                    <p style="font-size: 22px; font-weight: 500; color: #2563eb;" data-en="Our mission is simple: to make your journey towards better health easier, one day at a time." 
                        data-tc="我們的使命很簡單：讓您邁向更健康的旅程每天都變得更容易。" 
                        data-sc="我们的使命很简单：让您迈向更健康的旅程每天都变得更容易。">
                         Our mission is simple: to make your journey towards better health easier, one day at a time.
