@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://easyeasy-dotcom.github.io/EasyEasy-Smoking-Reduction/sitemap.xml
